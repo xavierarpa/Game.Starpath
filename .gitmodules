@@ -13,3 +13,6 @@
 [submodule "Game/Assets/SubModules/MMA.Firebase"]
 	path = Game/Assets/SubModules/MMA.Firebase
 	url = https://github.com/MMA-Architecture/mma.firebase.git
+[submodule "Game/Assets/SubModules/MMA.Scenes"]
+	path = Game/Assets/SubModules/MMA.Scenes
+	url = https://github.com/MMA-Architecture/mma.scenes.git
