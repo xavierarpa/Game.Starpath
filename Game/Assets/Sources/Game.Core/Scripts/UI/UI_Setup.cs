@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using MMA;
 using TMPro;
+using X;
+using X.Common;
 
 public class UI_Setup : Module
 {
@@ -28,6 +30,7 @@ public class UI_Setup : Module
 
     private void Start()
     {
+        OnSetColors();
         OnTranslateUI();
     }
 
@@ -43,4 +46,16 @@ public class UI_Setup : Module
         tmp_text_input_name_placeholder.text = MMA.Localization.Service.Translate(Data_Localization.Key.setup_input_name_placeholder);
         tmp_text_button_continue.text = MMA.Localization.Service.Translate(Data_Localization.Key.setup_continue);
     }
+
+    private void OnSetColors()
+    {
+        this.tr_parent_ui_color.ClearChilds();
+
+        //TODO llamar a DB y revisar las opciones
+        //for (int i = 0; i < max; i++)
+        //{
+
+        //}
+    }
+
 }

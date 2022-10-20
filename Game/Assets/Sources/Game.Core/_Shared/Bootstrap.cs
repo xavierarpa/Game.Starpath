@@ -1,10 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class Bootstrap : MonoBehaviour
 {
+
+    [SerializeField] private Image img_background = default;
+
+
     private void Awake()
     {
         if (SceneManager.sceneCount > 1) SceneManager.LoadScene(0);
@@ -13,6 +18,7 @@ public class Bootstrap : MonoBehaviour
     {
 
         //INIT
+        Debug.Log("INIT");
 
         //Cargamos manualmente Scene
         yield return SceneManager.LoadSceneAsync("MMA.Scenes", LoadSceneMode.Additive);
@@ -35,7 +41,9 @@ public class Bootstrap : MonoBehaviour
 
 
 
-        yield return null;
+        //END
+        img_background.gameObject.SetActive(false);
+        Debug.Log("END");
     }
 
 }
