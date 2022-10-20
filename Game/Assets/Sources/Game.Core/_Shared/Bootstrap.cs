@@ -19,7 +19,7 @@ public class Bootstrap : MonoBehaviour
 
 
         //## Localization Module
-        yield return Service.Scene.Add(Data_Scenes.MMA_Localization);
+        yield return Service.Scene.Add("MMA.Localization");
         yield return Middleware<string, bool>.Invoke_Task(MMA.Localization.Key.Set_StringTable, Data_Localization.Path_Locale).ToCoroutine();
 
         //# Internet
