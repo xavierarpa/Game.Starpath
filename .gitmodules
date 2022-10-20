@@ -16,3 +16,6 @@
 [submodule "Game/Assets/SubModules/MMA.Scenes"]
 	path = Game/Assets/SubModules/MMA.Scenes
 	url = https://github.com/MMA-Architecture/mma.scenes.git
+[submodule "Game/Assets/SubModules/X-Common"]
+	path = Game/Assets/SubModules/X-Common
+	url = https://github.com/kingdox/x-common.git
