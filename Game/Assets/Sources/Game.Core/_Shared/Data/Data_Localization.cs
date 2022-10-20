@@ -14,7 +14,8 @@ public static class Data_Localization
         [SystemLanguage.Spanish] = "es",
     };
 
-    public static string GET_LOCALE(this SystemLanguage systemLanguage) => DIC_LANGUAGES.TryGetValue(systemLanguage, out string val) ? val : DIC_LANGUAGES[DEFAULT_LANGUAGE];
+    //public static string GET_LOCALE(this SystemLanguage systemLanguage) => DIC_LANGUAGES.TryGetValue(systemLanguage, out string val) ? val : DIC_LANGUAGES[DEFAULT_LANGUAGE];
+    public static string GET_LOCALE(this SystemLanguage systemLanguage) => DIC_LANGUAGES[DEFAULT_LANGUAGE];
     public static string Path_Locale => $"{Data_Addressables.LocalizationTable_String}_{Application.systemLanguage.GET_LOCALE()}";
 
     public static class Key

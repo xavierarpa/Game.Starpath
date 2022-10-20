@@ -16,8 +16,6 @@ public class Bootstrap : MonoBehaviour
     [SerializeField] private ZoneService service_zone = default;
     [SerializeField] private SettingsService service_settings = default;
 
-    public Data_Firebase.Fingerprint fingerprint = new Data_Firebase.Fingerprint("_god_",Vector2.zero,"Testeo chulo","Kingdox", "#800080");
-
     private void Awake()
     {
         if (SceneManager.sceneCount > 1) SceneManager.LoadScene(0);
@@ -48,13 +46,7 @@ public class Bootstrap : MonoBehaviour
         yield return Service.Scene.Add("MMA.Firebase");
         yield return Service.Scene.Add("MMA.Firebase.Firestore");
         yield return Middleware<bool>.Invoke_Task(MMA.Firebase.Key.Initialize).ToCoroutine();
-        yield return MMA.Firebase_Firestore.Service.Initialize().ToCoroutine();
-
-        //TODO test
-        yield return MMA.Firebase_Firestore.Service.Set((Data_Firebase.Collection.SETTINGS_TEST_, fingerprint)).ToCoroutine();
-
-
-        yield break;
+        MMA.Firebase_Firestore.Service.Initialize();
 
         //## ServiceManager
         yield return manager_service.Initialize();

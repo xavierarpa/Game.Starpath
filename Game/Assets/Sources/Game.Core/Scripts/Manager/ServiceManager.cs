@@ -12,6 +12,10 @@ public class ServiceManager : MonoBehaviour
     public IEnumerator Initialize()
     {
 
+        //Initialize Settings
+        //Debug.Log("Get Colors");
+        yield return service_settings.Initialize().ToCoroutine();
+
         yield return null;
     }
 }

@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -35,8 +36,17 @@ public class UI_Setup : Module
 
     private void Start()
     {
-        OnSetColors();
         OnTranslateUI();
+    }
+
+    private void Update()
+    {
+
+        if (tmp_inputfield.text.Length>10)
+        {
+            tmp_inputfield.text = tmp_inputfield.text.Substring(0, 9);
+        }
+        
     }
 
     protected override void OnSubscription(bool condition)
@@ -53,15 +63,21 @@ public class UI_Setup : Module
         tmp_text_button_continue.text = MMA.Localization.Service.Translate(Data_Localization.Key.setup_continue);
     }
 
-    private void OnSetColors()
+    private void clearCOlors()
     {
         this.tr_parent_ui_color.ClearChilds();
+    }
 
-        //TODO llamar a DB y revisar las opciones
-        //for (int i = 0; i < max; i++)
-        //{
+    public void SetColors(List<string> list)
+    {
+        clearCOlors();
 
-        //}
+        for (int i = 0; i < list.Count; i++)
+        {
+            var _ui_color = Instantiate(pref_ui_color, Vector3.zero,Quaternion.identity, tr_parent_ui_color);
+            _ui_color.Set(list[i]);
+        }
+
     }
 
 
@@ -74,4 +90,45 @@ public class UI_Setup : Module
         canvasGroup.blocksRaycasts = condition;
     }
 
+
+    //el boton llama a esto
+    public void OnSubmit()
+    {
+
+        tr_parent_ui_color.Components(out UI_Component_Color[] ui_colors);
+        UI_Component_Color ui_color_selected = default;
+        for (int i = 0; i < ui_colors.Length; i++)
+        {
+            if (ui_colors[i].img_selected.enabled)
+            {
+                ui_color_selected = ui_colors[i];
+            }
+        }
+
+        if (ui_color_selected is null)
+        {
+            Debug.LogWarning("No ha elegido color dios");
+            return;
+        }
+
+        if (GameManager.Validate_Fingersprint_Nickname(tmp_inputfield.text)) 
+        {
+            //OK INPUT
+
+            if (GameManager.Validate_Fingersprint_Color(ui_color_selected.hex))
+            {
+                //OK COLOR SELECTION
+                Debug.Log($"SETUP_READY: nick:'{tmp_inputfield.text}' color: '{ui_color_selected.hex}'");
+                Middleware.Invoke_Publish("SETUP_READY");
+            }
+            else
+            {
+                Debug.LogWarning("Formulario err Color");
+            }
+        }
+        else
+        {
+            Debug.LogWarning("Formulario err input");
+        }
+    }
 }
