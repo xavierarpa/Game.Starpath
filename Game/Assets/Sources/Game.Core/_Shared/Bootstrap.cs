@@ -6,19 +6,28 @@ using UnityEngine.SceneManagement;
 
 public class Bootstrap : MonoBehaviour
 {
+    [Header("Managers")]
+    [Space]
+    [SerializeField] private GameManager manager_game = default;
+    [SerializeField] private UIManager manager_ui = default;
+    [SerializeField] private ServiceManager manager_service = default;
 
-    [SerializeField] private Image img_background = default;
+    [Header("Services")]
+    [SerializeField] private ZoneService service_zone = default;
+    [SerializeField] private SettingsService service_settings = default;
 
+    public Data_Firebase.Fingerprint fingerprint = new Data_Firebase.Fingerprint("_god_",Vector2.zero,"Testeo chulo","Kingdox", "#800080");
 
     private void Awake()
     {
         if (SceneManager.sceneCount > 1) SceneManager.LoadScene(0);
     }
+
     private IEnumerator Start()
     {
 
         //INIT
-        Debug.Log("INIT");
+        Debug.Log("---- INIT ----");
 
         //Cargamos manualmente Scene
         yield return SceneManager.LoadSceneAsync("MMA.Scenes", LoadSceneMode.Additive);
@@ -27,6 +36,9 @@ public class Bootstrap : MonoBehaviour
         //## Localization Module
         yield return Service.Scene.Add("MMA.Localization");
         yield return Middleware<string, bool>.Invoke_Task(MMA.Localization.Key.Set_StringTable, Data_Localization.Path_Locale).ToCoroutine();
+        //var a = MMA.Localization.Service.Translate("common_lang");
+        //Debug.Log(a);
+
 
         //# Internet
         yield return Service.Scene.Add("MMA.InternetStatus");
@@ -35,16 +47,27 @@ public class Bootstrap : MonoBehaviour
         //## Firebase
         yield return Service.Scene.Add("MMA.Firebase");
         yield return Service.Scene.Add("MMA.Firebase.Firestore");
-        var operation_init_firebase = Middleware<bool>.Invoke_Task(MMA.Firebase.Key.Initialize).ToCoroutine();
-        yield return operation_init_firebase;
+        yield return Middleware<bool>.Invoke_Task(MMA.Firebase.Key.Initialize).ToCoroutine();
+        yield return MMA.Firebase_Firestore.Service.Initialize().ToCoroutine();
+
+        //TODO test
+        yield return MMA.Firebase_Firestore.Service.Set((Data_Firebase.Collection.SETTINGS_TEST_, fingerprint)).ToCoroutine();
 
 
+        yield break;
 
+        //## ServiceManager
+        yield return manager_service.Initialize();
+
+
+        //## UIManager
+        yield return manager_ui.Initialize();
+
+
+        //## GameManager
+        yield return manager_game.Initialize();
 
         //END
-        img_background.gameObject.SetActive(false);
-        Debug.Log("END");
+        Debug.Log("---- END ----");
     }
-
 }
-

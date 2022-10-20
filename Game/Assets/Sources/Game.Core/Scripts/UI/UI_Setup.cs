@@ -9,6 +9,11 @@ using X.Common;
 
 public class UI_Setup : Module
 {
+
+    [Header("Settings")]
+    [Space]
+    [SerializeField] private CanvasGroup canvasGroup = default;
+
     [Header("Header")]
     [Space]
     [SerializeField] private TMP_Text tmp_text_title = default;
@@ -40,6 +45,7 @@ public class UI_Setup : Module
         Middleware.Subscribe_Publish(condition, MMA.Localization.Key.OnSetStringTable, OnTranslateUI);
     }
 
+
     private void OnTranslateUI()
     {
         tmp_text_title.text = MMA.Localization.Service.Translate(Data_Localization.Key.setup_title);
@@ -56,6 +62,16 @@ public class UI_Setup : Module
         //{
 
         //}
+    }
+
+
+
+    public void Status(bool condition)
+    {
+        gameObject.SetActive(condition);
+        canvasGroup.alpha = condition ? 1 : 0;
+        canvasGroup.interactable = condition;
+        canvasGroup.blocksRaycasts = condition;
     }
 
 }

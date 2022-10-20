@@ -22,6 +22,22 @@ MonoBehaviour:
     m_Localized: English
     m_Metadata:
       m_Items: []
+  - m_Id: 192223571337216
+    m_Localized: Create your Footprint for eternity
+    m_Metadata:
+      m_Items: []
+  - m_Id: 192223579725824
+    m_Localized: Continue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 192223579725825
+    m_Localized: Write a nick
+    m_Metadata:
+      m_Items: []
+  - m_Id: 270400482172928
+    m_Localized: Loading...
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

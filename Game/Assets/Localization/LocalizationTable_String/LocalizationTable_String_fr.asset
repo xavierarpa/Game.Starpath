@@ -22,6 +22,18 @@ MonoBehaviour:
     m_Localized: French
     m_Metadata:
       m_Items: []
+  - m_Id: 192223571337216
+    m_Localized: "Cr\xE9ez votre empreinte pour l'\xE9ternit\xE9"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 192223579725824
+    m_Localized: Continuar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 192223579725825
+    m_Localized: "\xC9crire un nom"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

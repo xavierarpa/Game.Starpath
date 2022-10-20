@@ -22,6 +22,22 @@ MonoBehaviour:
     m_Localized: "Espa\xF1ol"
     m_Metadata:
       m_Items: []
+  - m_Id: 192223571337216
+    m_Localized: Crea tu Huella para toda la eternidad
+    m_Metadata:
+      m_Items: []
+  - m_Id: 192223579725824
+    m_Localized: Continuar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 192223579725825
+    m_Localized: Escribe un apodo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 270400482172928
+    m_Localized: Cargando...
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -19,6 +19,22 @@ MonoBehaviour:
     m_Key: common_lang
     m_Metadata:
       m_Items: []
+  - m_Id: 192223571337216
+    m_Key: setup_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 192223579725824
+    m_Key: setup_continue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 192223579725825
+    m_Key: setup_input_name_placeholder
+    m_Metadata:
+      m_Items: []
+  - m_Id: 270400482172928
+    m_Key: loading_message
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

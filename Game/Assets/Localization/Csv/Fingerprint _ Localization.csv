@@ -1,2 +1,6 @@
 Key,Id,Spanish(es),English(en),French(fr)
 common_lang,,Español,English,French
+setup_title,,Crea tu Huella para toda la eternidad,Create your Footprint for eternity,Créez votre empreinte pour l'éternité
+setup_continue,,Continuar,Continue,Continuar
+setup_input_name_placeholder,,Escribe un apodo,Write a nick,Écrire un nom
+loading_message,,Cargando...,Loading...,

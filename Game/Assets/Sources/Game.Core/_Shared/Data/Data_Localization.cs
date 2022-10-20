@@ -21,8 +21,11 @@ public static class Data_Localization
     {
         //Translations
         public const string common_lang = "common_lang";
-        public const string setup_title = "setup_title";//TODO
-        public const string setup_continue = "setup_continue";//TODO
-        public const string setup_input_name_placeholder = "setup_input_name_placeholder"; //TODO
+        public const string setup_title = "setup_title";
+        public const string setup_continue = "setup_continue";
+        public const string setup_input_name_placeholder = "setup_input_name_placeholder"; 
+        public const string loading_message = "loading_message";
+
+
     }
 }
