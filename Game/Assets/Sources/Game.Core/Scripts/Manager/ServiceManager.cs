@@ -7,7 +7,7 @@ public class ServiceManager : MonoBehaviour
     [Header("Settings")]
     [Space]
     [SerializeField] private SettingsService service_settings = default;
-    [SerializeField] private ZoneService service_zone = default;
+    [SerializeField] private FingerPrintService service_fingerprint = default;
 
     public IEnumerator Initialize()
     {

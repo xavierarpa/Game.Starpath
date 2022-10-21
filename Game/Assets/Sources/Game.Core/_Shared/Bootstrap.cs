@@ -12,10 +12,6 @@ public class Bootstrap : MonoBehaviour
     [SerializeField] private UIManager manager_ui = default;
     [SerializeField] private ServiceManager manager_service = default;
 
-    [Header("Services")]
-    [SerializeField] private ZoneService service_zone = default;
-    [SerializeField] private SettingsService service_settings = default;
-
     private void Awake()
     {
         if (SceneManager.sceneCount > 1) SceneManager.LoadScene(0);

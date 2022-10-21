@@ -8,12 +8,13 @@ using X.Common;
 public class GameManager : Module
 {
 
-    private static GameManager _ = default;
+    public static GameManager _ = default;
 
     [Header("Settings")]
     [Space]
-    [SerializeField] private Fingerprint player_fingerprint = new Fingerprint(); // elemento que se va armando con el tiempo
+    public Fingerprint player_fingerprint = new Fingerprint(); // elemento que se va armando con el tiempo
 
+    public Color color_player;
 
     private void Awake()
     {
@@ -70,6 +71,7 @@ public class GameManager : Module
     {
         if (ColorUtility.TryParseHtmlString(k, out Color color))
         {
+            _.color_player = color;
             Debug.Log($"<color={k}>VALID '{k}'</color>");
             _.player_fingerprint.Color = k;
             return true;

@@ -35,10 +35,10 @@ public class Settings_General
 [Serializable]
 public struct Fingerprint
 {
-    [field: SerializeField] public string RefID { get; set; } //TODO
-    [field: SerializeField] public double Position_X { get; set; } //TODO
-    [field: SerializeField] public double Position_Y { get; set; } //TODO
-    [field: SerializeField] public string Message { get; set; } //TODO
+    [field: SerializeField] public string RefID { get; set; } 
+    [field: SerializeField] public double Position_X { get; set; }
+    [field: SerializeField] public double Position_Y { get; set; }
+    [field: SerializeField] public string Message { get; set; } 
     [field: SerializeField] public string Nick { get; set; }
     [field: SerializeField] public string Color { get; set; } 
     public DateTime CreatedAt { get; set; }
@@ -59,6 +59,23 @@ public struct Fingerprint
         this.Nick = nick;
         this.Color = color;
         this.CreatedAt = DateTime.Now;
+    }
+
+
+
+    public Fingerprint(Dictionary<string, object> document){
+        this.RefID = document["RefID"] as string;
+
+        double.TryParse(document["Position_X"].ToString(), out double _Position_X);
+        double.TryParse(document["Position_Y"].ToString(), out double _Position_Y);
+        DateTime.TryParse(document["CreatedAt"].ToString(), out DateTime _CreatedAt);
+
+        this.Position_X = _Position_X;
+        this.Position_Y = _Position_Y;
+        this.Message = document["Message"] as string;
+        this.Nick = document["Nick"] as string;
+        this.Color = document["Color"] as string;
+        this.CreatedAt = _CreatedAt;
     }
 
 }
