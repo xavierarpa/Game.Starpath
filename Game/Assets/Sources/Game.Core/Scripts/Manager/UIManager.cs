@@ -10,6 +10,7 @@ public class UIManager : Module
     [Space]
     public UI_Setup ui_setup = default;
     public UI_Loading ui_loading = default;
+    public UI_Game ui_game = default;
 
     private void Awake()
     {
@@ -17,6 +18,7 @@ public class UIManager : Module
 
         ui_loading.Status(true);
         ui_setup.Status(false);
+        ui_game.Status(false);
     }
 
     protected override void OnSubscription(bool condition)
@@ -38,5 +40,6 @@ public class UIManager : Module
         ui_setup.Status(true);
 
         ui_setup.SetColors(list);
+        ui_setup.SetIcons();
     }
 }

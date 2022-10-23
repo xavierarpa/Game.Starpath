@@ -7,10 +7,18 @@ using Firebase.Firestore;
 
 public class FingerPrintService : MonoBehaviour
 {
-    public FingerPrintService _;
+    public static FingerPrintService _;
 
+    [Header("Mark settings")]
+    [Space]
+    public Transform marks_parent;
+    public Mark pref_mark = default;
+
+    [Header("Data")]
+    [Space]
     public List<string> list_id_marks = new List<string>();
     public List<Fingerprint> list_fingerprints = new List<Fingerprint>();
+    public List<Mark> list_marks = new List<Mark>();
 
     private void Awake()
     {
@@ -19,7 +27,7 @@ public class FingerPrintService : MonoBehaviour
 
 
     [ContextMenu("Test !")]
-    public void GetAllFingerPrints()
+    public void __GetAllFingerPrints()
     {
         Debug.Log("Initialize Fingerprint GETALL");
         StartCoroutine(Get_FingerPrints());
@@ -30,7 +38,7 @@ public class FingerPrintService : MonoBehaviour
         var async_fingerPrints = MMA.Firebase_Firestore.Service.GetAll("fingerprints").ToCoroutine();
         yield return async_fingerPrints;
         var list_fingerPrints = async_fingerPrints.Current;
-        Debug.Log(list_fingerPrints);
+        //Debug.Log(list_fingerPrints);
         
         if (list_fingerPrints is null)
         {
@@ -41,18 +49,34 @@ public class FingerPrintService : MonoBehaviour
         {
             this.list_id_marks.Clear();
             this.list_fingerprints.Clear();
-
+            this.list_marks.Clear();
+            marks_parent.ClearChilds();
 
             for (int i = 0; i < list_fingerPrints.Count; i++)
             {
-                Debug.Log($"[{i}]: {list_fingerPrints[i].id} Document with {list_fingerPrints[i].document.Count} elements");
+                //Debug.Log($"[{i}]: {list_fingerPrints[i].id} Document with {list_fingerPrints[i].document.Count} elements");
                 list_id_marks.Add(list_fingerPrints[i].id);
-                this.list_fingerprints.Add(new Fingerprint(list_fingerPrints[i].document));
+                var finger = new Fingerprint(list_fingerPrints[i].document);
+                this.list_fingerprints.Add(finger);
                 yield return null; // Para no hacer una sobrecarga
+
+                //Crea la marca
+                var mark = Instantiate(pref_mark, marks_parent);
+                list_marks.Add(mark);
             }
+
+
+            //Coloca cada Mark los datos
+            for (int i = 0; i < list_marks.Count; i++)
+            {
+                list_marks[i].SetFingerprint(this.list_fingerprints[i]);
+                yield return null;
+            }
+
+
+
+            yield return new WaitForSeconds(1);
         }
 
     }
-
-
 }

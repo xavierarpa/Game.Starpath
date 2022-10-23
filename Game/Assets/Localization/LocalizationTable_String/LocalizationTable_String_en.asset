@@ -38,6 +38,10 @@ MonoBehaviour:
     m_Localized: Loading...
     m_Metadata:
       m_Items: []
+  - m_Id: 994513458814976
+    m_Localized: Write the message that you will mark...
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

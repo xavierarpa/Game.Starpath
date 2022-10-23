@@ -34,6 +34,10 @@ MonoBehaviour:
     m_Localized: "\xC9crire un nom"
     m_Metadata:
       m_Items: []
+  - m_Id: 994513458814976
+    m_Localized: Ecrivez le message que vous allez marquer...
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

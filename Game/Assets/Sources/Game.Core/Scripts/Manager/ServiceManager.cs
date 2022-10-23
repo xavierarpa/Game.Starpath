@@ -1,13 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using X.Common;
+using X;
 
 public class ServiceManager : MonoBehaviour
 {
+    public static ServiceManager _ = default;
+
     [Header("Settings")]
     [Space]
-    [SerializeField] private SettingsService service_settings = default;
-    [SerializeField] private FingerPrintService service_fingerprint = default;
+    public SettingsService service_settings = default;
+    public FingerPrintService service_fingerprint = default;
+
+    private void Awake()
+    {
+        this.Singleton(ref _);
+    }
 
     public IEnumerator Initialize()
     {
@@ -18,4 +27,7 @@ public class ServiceManager : MonoBehaviour
 
         yield return null;
     }
+
+
+    public IEnumerator HandleWorld() => service_fingerprint.Get_FingerPrints();
 }

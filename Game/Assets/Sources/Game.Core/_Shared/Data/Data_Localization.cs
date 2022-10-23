@@ -26,7 +26,7 @@ public static class Data_Localization
         public const string setup_continue = "setup_continue";
         public const string setup_input_name_placeholder = "setup_input_name_placeholder"; 
         public const string loading_message = "loading_message";
-
-
+        public const string setup_input_message_placeholder = "setup_input_message_placeholder";
+        
     }
 }
