@@ -12,7 +12,7 @@ public class Character : Application<Character.Reference, Character.Model>
     public struct Model{}
     public struct Reference{}
 
-
+    public const float DISTANCE_INSTANCE = 10000f;
     
     public SpriteRenderer spr_container;
     public SpriteRenderer spr_color;
@@ -27,6 +27,7 @@ public class Character : Application<Character.Reference, Character.Model>
     private void Awake()
     {
         this.Singleton(ref _);
+        //transform.position = new Vector3((DISTANCE_INSTANCE).ZeroMax(), transform.position.y, (DISTANCE_INSTANCE).ZeroMax());
     }
 
     protected override void OnSubscription(bool condition)
@@ -110,7 +111,7 @@ public class Character : Application<Character.Reference, Character.Model>
 
         if (Time.frameCount % 20 == 0)
         {
-            var list_marks = FingerPrintService._.list_marks;
+            var list_marks = FingerPrintService._ is null ? new List<Mark>() : FingerPrintService._.list_marks;
             if (list_marks.Count>0)
             {
                 var _index = 0;
@@ -124,7 +125,10 @@ public class Character : Application<Character.Reference, Character.Model>
                     }
                 }
 
-                GameManager._.player_fingerprint.RefID = FingerPrintService._.list_id_marks[_index];
+                if (GameManager._ != null)
+                {
+                    GameManager._.player_fingerprint.RefID = FingerPrintService._.list_id_marks[_index];
+                }
             }
         }
     }

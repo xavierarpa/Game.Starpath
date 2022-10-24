@@ -42,21 +42,30 @@ public class Mark : MonoBehaviour
 
         if (_fingerprint.RefID.Length > 0)
         {
-            var _mark = FingerPrintService._.list_marks.Find(m => m.fingerprint.RefID.Equals(_fingerprint.RefID));
-            if (_mark.Equals(null))
+            var _id_index = FingerPrintService._.list_id_marks.FindIndex(id => id.Equals(_fingerprint.RefID));
+            Mark _mark = null;
+
+            if (_id_index>=0)
+            {
+                _mark = FingerPrintService._.list_marks[_id_index];
+            }
+
+            if (_mark == null)
             {
                 // NADA
                 line_renderer.startColor = color;
                 line_renderer.endColor = color;
-                line_renderer.SetPosition(0, this.transform.position + Vector3.down);
-                line_renderer.SetPosition(1, this.transform.position + Vector3.down);
+                line_renderer.SetPosition(0, new Vector3(this.transform.position.x,-5, this.transform.position.z));
+                line_renderer.SetPosition(1, new Vector3(this.transform.position.x, -5, this.transform.position.z));
+
+                Debug.Log($"No Ref {name} => {_fingerprint.RefID}");
             }
             else
             {
                 line_renderer.startColor = color;
                 line_renderer.endColor = _mark.spr_color.color;
-                line_renderer.SetPosition(0, this.transform.position + Vector3.down);
-                line_renderer.SetPosition(1, _mark.transform.position + Vector3.down);
+                line_renderer.SetPosition(0, new Vector3(this.transform.position.x, -5, this.transform.position.z));
+                line_renderer.SetPosition(1, new Vector3(_mark.transform.position.x, -5, _mark.transform.position.z));
             }
         }
     }

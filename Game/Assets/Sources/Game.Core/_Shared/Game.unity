@@ -2879,6 +2879,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetWidth: 1080
   pixelsToUnits: 100
+  smooth_zoom:
+    <Limit>k__BackingField: {x: 50, y: 100}
+    <Intensity_delta>k__BackingField: 1
+    <Intensity_speed>k__BackingField: 1
+    delta: 0
+    deltaSpeed: 0
+    current: 0
+    target: 0
+  input_scroll_zoom: 0
 --- !u!1 &1249946474
 GameObject:
   m_ObjectHideFlags: 0
@@ -3685,6 +3694,7 @@ MonoBehaviour:
   velocity: 5
   lineRenderer: {fileID: 2030711206}
   canInputs: 0
+  indexSpr: 0
   lastMark: {fileID: 0}
 --- !u!114 &1682599635
 MonoBehaviour:
@@ -4322,7 +4332,7 @@ LineRenderer:
   - {x: 0, y: 0, z: 0}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.1
+    widthMultiplier: 0.05
     widthCurve:
       serializedVersion: 2
       m_Curve:
