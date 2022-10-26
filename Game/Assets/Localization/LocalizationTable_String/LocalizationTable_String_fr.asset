@@ -39,7 +39,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2164513183883264
-    m_Localized: text_create
+    m_Localized: "Appuyez sur l'espace pour cr\xE9er une \xE9toile"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 270400482172928
+    m_Localized: Chargement...
     m_Metadata:
       m_Items: []
   references:

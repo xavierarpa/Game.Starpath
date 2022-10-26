@@ -3,5 +3,6 @@ common_lang,,Español,English,French
 setup_title,,Crea tu Huella para toda la eternidad,Create your Footprint for eternity,Créez votre empreinte pour l'éternité
 setup_continue,,Continuar,Continue,Continuar
 setup_input_name_placeholder,,Escribe un apodo,Write a nick,Écrire un nom
-loading_message,,Cargando...,Loading...,
+loading_message,,Cargando...,Loading...,Chargement...
 setup_input_message_placeholder,,Escribe el mensaje que marcarás...,Write the message that you will mark...,Ecrivez le message que vous allez marquer...
+text_create,,Presiona espacio para crear una estrella,Press space to create a star,Appuyez sur l'espace pour créer une étoile

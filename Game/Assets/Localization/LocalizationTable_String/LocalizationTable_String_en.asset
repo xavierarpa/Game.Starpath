@@ -43,7 +43,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2164513183883264
-    m_Localized: text_create
+    m_Localized: Press space to create a star
     m_Metadata:
       m_Items: []
   references:

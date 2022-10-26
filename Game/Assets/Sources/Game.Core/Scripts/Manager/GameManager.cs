@@ -67,7 +67,7 @@ public class GameManager : Module
 
     public static bool Validate_Fingersprint_Nickname(in string k)
     {
-        if (k.Length>0 && k.Length<11)
+        if (k.Length>=0 && k.Length<11)
         {
             _.player_fingerprint.Nick = k;
             return true;
@@ -80,7 +80,7 @@ public class GameManager : Module
 
     public static bool Validate_Fingersprint_Message(in string k)
     {
-        if (k.Length > 0 && k.Length < 141)
+        if (k.Length >= 0 && k.Length < 141)
         {
             _.player_fingerprint.Message = k;
             return true;

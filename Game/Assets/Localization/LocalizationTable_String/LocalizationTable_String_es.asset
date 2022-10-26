@@ -43,7 +43,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2164513183883264
-    m_Localized: text_create
+    m_Localized: Presiona espacio para crear una estrella
     m_Metadata:
       m_Items: []
   references:

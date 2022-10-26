@@ -125,7 +125,7 @@ public class Character : Application<Character.Reference, Character.Model>
             text_nickname.text = "";
             text_createdAt.text = "";
             text_message.text = "";
-            text_create.text = MMA.Localization.Service.Translate(Data_Localization.Key.text_create);
+            text_create.text = "";
             
         }
         else

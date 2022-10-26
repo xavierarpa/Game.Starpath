@@ -39,8 +39,8 @@ namespace UnityLibrary
         // in editor need to update in a loop, in case of game window resizes
         private void Update()
         {
+            if (!Application.isPlaying) return;
                     
-            //Character._.transform
             transform.position = Vector3.MoveTowards(transform.position, Character._.transform.position.Axis(AxisType.y, transform.position.y), speedMovement * Time.deltaTime);
 
 
