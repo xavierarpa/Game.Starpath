@@ -28,6 +28,6 @@ public static class Data_Localization
         public const string loading_message = "loading_message";
         public const string setup_input_message_placeholder = "setup_input_message_placeholder";
         public const string text_create = "text_create";
-        
+        public const string text_create_not = "text_create_not";
     }
 }

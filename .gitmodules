@@ -19,3 +19,6 @@
 [submodule "Game/Assets/SubModules/X-Common"]
 	path = Game/Assets/SubModules/X-Common
 	url = https://github.com/kingdox/x-common.git
+[submodule "Game/Assets/SubModules/SafeAreaFitter"]
+	path = Game/Assets/SubModules/SafeAreaFitter
+	url = https://gist.github.com/kingdox/2fa7e8af15c154b668865e979a03e70f
