@@ -43,6 +43,10 @@ MonoBehaviour:
     m_Key: text_create
     m_Metadata:
       m_Items: []
+  - m_Id: 2518843443372032
+    m_Key: text_create_not
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

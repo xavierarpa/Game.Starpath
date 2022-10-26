@@ -23,15 +23,15 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 192223571337216
-    m_Localized: Create your Footprint for eternity
+    m_Localized: Create your star for the constellation
     m_Metadata:
       m_Items: []
   - m_Id: 192223579725824
-    m_Localized: Continue
+    m_Localized: Continue to
     m_Metadata:
       m_Items: []
   - m_Id: 192223579725825
-    m_Localized: Write a nick
+    m_Localized: Name the star
     m_Metadata:
       m_Items: []
   - m_Id: 270400482172928
@@ -39,11 +39,15 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 994513458814976
-    m_Localized: Write the message that you will mark...
+    m_Localized: Write a message for the star
     m_Metadata:
       m_Items: []
   - m_Id: 2164513183883264
-    m_Localized: Press space to create a star
+    m_Localized: Press space to create the star
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2518843443372032
+    m_Localized: You cannot create the star here
     m_Metadata:
       m_Items: []
   references:

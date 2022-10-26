@@ -1,8 +1,9 @@
 Key,Id,Spanish(es),English(en),French(fr)
-common_lang,,Español,English,French
-setup_title,,Crea tu Huella para toda la eternidad,Create your Footprint for eternity,Créez votre empreinte pour l'éternité
-setup_continue,,Continuar,Continue,Continuar
-setup_input_name_placeholder,,Escribe un apodo,Write a nick,Écrire un nom
+common_lang,,Español,English,Anglais
+setup_title,,Crea tu estrella para la constelación,Create your star for the constellation,Créez votre étoile pour la constellation
+setup_continue,,Continuar,Continue to,Continuer à
+setup_input_name_placeholder,,Nombra la estrella,Name the star,Nommez l'étoile
 loading_message,,Cargando...,Loading...,Chargement...
-setup_input_message_placeholder,,Escribe el mensaje que marcarás...,Write the message that you will mark...,Ecrivez le message que vous allez marquer...
-text_create,,Presiona espacio para crear una estrella,Press space to create a star,Appuyez sur l'espace pour créer une étoile
+setup_input_message_placeholder,,Escribe un mensaje para la estrella,Write a message for the star,Écrire un message pour la star
+text_create,,Presiona espacio para crear la estrella,Press space to create the star,Appuyez sur l'espace pour créer l'étoile
+text_create_not,,No puede crear la estrella aquí,You cannot create the star here,Vous ne pouvez pas créer l'étoile ici

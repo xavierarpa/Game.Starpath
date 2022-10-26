@@ -23,7 +23,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 192223571337216
-    m_Localized: Crea tu Huella para toda la eternidad
+    m_Localized: "Crea tu estrella para la constelaci\xF3n"
     m_Metadata:
       m_Items: []
   - m_Id: 192223579725824
@@ -31,7 +31,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 192223579725825
-    m_Localized: Escribe un apodo
+    m_Localized: Nombra la estrella
     m_Metadata:
       m_Items: []
   - m_Id: 270400482172928
@@ -39,11 +39,15 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 994513458814976
-    m_Localized: "Escribe el mensaje que marcar\xE1s..."
+    m_Localized: Escribe un mensaje para la estrella
     m_Metadata:
       m_Items: []
   - m_Id: 2164513183883264
-    m_Localized: Presiona espacio para crear una estrella
+    m_Localized: Presiona espacio para crear la estrella
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2518843443372032
+    m_Localized: "No puede crear la estrella aqu\xED"
     m_Metadata:
       m_Items: []
   references:
