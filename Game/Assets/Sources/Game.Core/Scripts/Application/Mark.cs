@@ -1,24 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using X;
+using X.Common;
+using X.Common.Know;
 
 public class Mark : MonoBehaviour
 {
     public Fingerprint fingerprint = default;
     [Space]
     public SpriteRenderer spr_color = default;
-    public GameObject obj_message = default;
-    public TMPro.TMP_Text text_message = default;
-    public TMPro.TMP_Text text_nickname = default;
-    public TMPro.TMP_Text text_createdAt = default;
     public LineRenderer line_renderer = default;
 
 
     public float radius = default;
 
+    //private static readonly Vector2 range = new Vector2(-1f, 1f);
+    private float speedRotation = 0;
+
     private void Awake()
     {
-        obj_message.SetActive(false);
+        speedRotation = 20.MinusMax();
+    }
+
+    private void Update()
+    {
+        transform.Rotate(Vector3.up * speedRotation * Time.deltaTime);
     }
 
     public void SetFingerprint( Fingerprint _fingerprint)
@@ -39,6 +46,7 @@ public class Mark : MonoBehaviour
         name = fingerprint.Nick;
 #endif
         spr_color.color = color;
+        spr_color.sprite = GameManager._.list_character_sprites[_fingerprint.SpriteIndex];
 
         if (_fingerprint.RefID.Length > 0)
         {

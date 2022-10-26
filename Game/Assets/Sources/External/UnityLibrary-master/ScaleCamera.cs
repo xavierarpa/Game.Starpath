@@ -3,7 +3,9 @@
 // source: https://www.youtube.com/watch?v=rMCLWt1DuqI
 using System;
 using UnityEngine;
+using X.Common.Change;
 using X.Common.Set;
+using X.Common.Know;
 using X.Common;
 using X;
 
@@ -19,6 +21,8 @@ namespace UnityLibrary
         public SmoothTransition smooth_zoom;
         public float input_scroll_zoom;
 
+        public float speedMovement = default;
+
         void Start()
         {
             cam = GetComponent<Camera>();
@@ -33,8 +37,13 @@ namespace UnityLibrary
         }
 
         // in editor need to update in a loop, in case of game window resizes
-        void Update()
+        private void Update()
         {
+                    
+            //Character._.transform
+            transform.position = Vector3.MoveTowards(transform.position, Character._.transform.position.Axis(AxisType.y, transform.position.y), speedMovement * Time.deltaTime);
+
+
             input_scroll_zoom = Input.mouseScrollDelta.y * 10;
             if (0 != input_scroll_zoom)
             {

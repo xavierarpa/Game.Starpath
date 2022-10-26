@@ -38,6 +38,10 @@ MonoBehaviour:
     m_Localized: Ecrivez le message que vous allez marquer...
     m_Metadata:
       m_Items: []
+  - m_Id: 2164513183883264
+    m_Localized: text_create
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

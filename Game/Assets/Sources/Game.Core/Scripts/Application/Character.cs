@@ -22,12 +22,21 @@ public class Character : Application<Character.Reference, Character.Model>
     public int indexSpr = 0;
     [Header("Etc")]
     [Space]
-    public Mark lastMark = default; 
+    public Mark lastMark = default;
+
+    private float speedRotation = 0;
+
+    public TMPro.TMP_Text text_message = default;
+    public TMPro.TMP_Text text_nickname = default;
+    public TMPro.TMP_Text text_createdAt = default;
+    public TMPro.TMP_Text text_create = default;
+
 
     private void Awake()
     {
         this.Singleton(ref _);
         //transform.position = new Vector3((DISTANCE_INSTANCE).ZeroMax(), transform.position.y, (DISTANCE_INSTANCE).ZeroMax());
+        speedRotation = 5.MinusMax();
     }
 
     protected override void OnSubscription(bool condition)
@@ -54,29 +63,42 @@ public class Character : Application<Character.Reference, Character.Model>
 
     private void Update()
     {
+
+        bool isMoveing = false;
+
+
         if (canInputs)
         {
+            
 
             if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
             {
                 //ARRIBA
                 transform.position += Vector3.forward * velocity * Time.deltaTime;
+                isMoveing = true;
             }
             if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
             {
                 //ABAJO
                 transform.position += Vector3.back * velocity * Time.deltaTime;
+                isMoveing = true;
             }
             if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
             {
                 // IZQUIERDA
                 transform.position += Vector3.left * velocity * Time.deltaTime;
+                isMoveing = true;
             }
             if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
             {
                 // DERECHA
                 transform.position += Vector3.right * velocity * Time.deltaTime;
+                isMoveing = true;
             }
+
+
+            if (isMoveing) transform.Rotate(Vector3.up * speedRotation * Time.deltaTime);
+
 
             if (Input.GetKey(KeyCode.Space))
             {
@@ -99,6 +121,12 @@ public class Character : Application<Character.Reference, Character.Model>
             lineRenderer.endColor = spr_color.color;
             lineRenderer.SetPosition(0, transform.position + Vector3.down);
             lineRenderer.SetPosition(1, transform.position + Vector3.down);
+
+            text_nickname.text = "";
+            text_createdAt.text = "";
+            text_message.text = "";
+            text_create.text = MMA.Localization.Service.Translate(Data_Localization.Key.text_create);
+            
         }
         else
         {
@@ -106,6 +134,10 @@ public class Character : Application<Character.Reference, Character.Model>
             lineRenderer.endColor = lastMark.spr_color.color;
             lineRenderer.SetPosition(0, transform.position + Vector3.down);
             lineRenderer.SetPosition(1, lastMark.transform.position + Vector3.down);
+
+            text_nickname.text = lastMark.fingerprint.Nick;
+            text_createdAt.text = lastMark.fingerprint.CreatedAt.ToString("G");
+            text_message.text = lastMark.fingerprint.Message;
         }
 
 

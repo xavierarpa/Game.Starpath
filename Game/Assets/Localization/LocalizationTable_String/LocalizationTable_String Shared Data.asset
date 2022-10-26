@@ -39,6 +39,10 @@ MonoBehaviour:
     m_Key: setup_input_message_placeholder
     m_Metadata:
       m_Items: []
+  - m_Id: 2164513183883264
+    m_Key: text_create
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
