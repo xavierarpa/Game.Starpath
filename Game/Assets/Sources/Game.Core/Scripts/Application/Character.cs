@@ -102,10 +102,7 @@ public class Character : Application<Character.Reference, Character.Model>
 
             if (Input.GetKey(KeyCode.Space))
             {
-                // FIRMAR
-
-                //if canMarkHere
-                if (true)
+                if (Vector3.Distance(lastMark.transform.position, transform.position) >= 4)
                 {
                     canInputs = false;
                     StartCoroutine(GameManager._.SubmitPlayer());
@@ -138,6 +135,15 @@ public class Character : Application<Character.Reference, Character.Model>
             text_nickname.text = lastMark.fingerprint.Nick;
             text_createdAt.text = lastMark.fingerprint.CreatedAt.ToString("G");
             text_message.text = lastMark.fingerprint.Message;
+
+            if (Vector3.Distance(lastMark.transform.position,transform.position)>= 4 )
+            {
+                text_create.text = MMA.Localization.Service.Translate(Data_Localization.Key.text_create);
+            }
+            else
+            {
+                text_create.text = MMA.Localization.Service.Translate(Data_Localization.Key.text_create_not);
+            }
         }
 
 

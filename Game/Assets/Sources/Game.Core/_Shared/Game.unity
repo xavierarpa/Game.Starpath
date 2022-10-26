@@ -4246,7 +4246,7 @@ MonoBehaviour:
   text_message: {fileID: 1097920877}
   text_nickname: {fileID: 695764109}
   text_createdAt: {fileID: 380738934}
-  text_create: {fileID: 380738934}
+  text_create: {fileID: 860130892}
 --- !u!114 &1682599635
 MonoBehaviour:
   m_ObjectHideFlags: 0
