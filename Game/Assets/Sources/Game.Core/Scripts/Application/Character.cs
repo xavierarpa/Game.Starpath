@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using X;
 using X.Common;
 
@@ -24,19 +25,19 @@ public class Character : Application<Character.Reference, Character.Model>
     [Space]
     public Mark lastMark = default;
 
-    private float speedRotation = 0;
+    private const float speedRotation = 10;
 
     public TMPro.TMP_Text text_message = default;
     public TMPro.TMP_Text text_nickname = default;
     public TMPro.TMP_Text text_createdAt = default;
     public TMPro.TMP_Text text_create = default;
+    public Image img_icon = default;
 
 
     private void Awake()
     {
         this.Singleton(ref _);
         //transform.position = new Vector3((DISTANCE_INSTANCE).ZeroMax(), transform.position.y, (DISTANCE_INSTANCE).ZeroMax());
-        speedRotation = 5.MinusMax();
     }
 
     protected override void OnSubscription(bool condition)
@@ -65,6 +66,8 @@ public class Character : Application<Character.Reference, Character.Model>
     {
 
         bool isMoveing = false;
+
+        img_icon.transform.Rotate(Vector3.forward * speedRotation  * Time.deltaTime);
 
 
         if (canInputs)
@@ -100,6 +103,7 @@ public class Character : Application<Character.Reference, Character.Model>
             if (isMoveing) transform.Rotate(Vector3.up * speedRotation * Time.deltaTime);
 
 
+
             if (Input.GetKey(KeyCode.Space))
             {
                 if (Vector3.Distance(lastMark.transform.position, transform.position) >= 4)
@@ -107,6 +111,12 @@ public class Character : Application<Character.Reference, Character.Model>
                     canInputs = false;
                     StartCoroutine(GameManager._.SubmitPlayer());
                 }
+            }
+
+
+            if (canInputs && Input.GetKey(KeyCode.Escape))
+            {
+                UnityEngine.SceneManagement.SceneManager.LoadScene(0);
             }
 
         }
@@ -123,7 +133,7 @@ public class Character : Application<Character.Reference, Character.Model>
             text_createdAt.text = "";
             text_message.text = "";
             text_create.text = "";
-            
+            img_icon.color = new Color(0, 0, 0, 0);
         }
         else
         {
@@ -135,13 +145,18 @@ public class Character : Application<Character.Reference, Character.Model>
             text_nickname.text = lastMark.fingerprint.Nick;
             text_createdAt.text = lastMark.fingerprint.CreatedAt.ToString("G");
             text_message.text = lastMark.fingerprint.Message;
+            img_icon.color = lastMark.spr_color.color;
+            img_icon.sprite = lastMark.spr_color.sprite;
+
 
             if (Vector3.Distance(lastMark.transform.position,transform.position)>= 4 )
             {
+                text_create.color = Color.white;
                 text_create.text = MMA.Localization.Service.Translate(Data_Localization.Key.text_create);
             }
             else
             {
+                text_create.color = Color.red;
                 text_create.text = MMA.Localization.Service.Translate(Data_Localization.Key.text_create_not);
             }
         }
