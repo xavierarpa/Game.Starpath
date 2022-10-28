@@ -4,9 +4,6 @@
 [submodule "Game/Assets/SubModules/MMA.Localization"]
 	path = Game/Assets/SubModules/MMA.Localization
 	url = https://github.com/MMA-Architecture/mma.localization.git
-[submodule "Game/Assets/SubModules/MMA.InternetStatus"]
-	path = Game/Assets/SubModules/MMA.InternetStatus
-	url = https://github.com/MMA-Architecture/mma.internetstatus.git
 [submodule "Game/Assets/SubModules/MMA.Firebase.Firestore"]
 	path = Game/Assets/SubModules/MMA.Firebase.Firestore
 	url = https://github.com/MMA-Architecture/mma.firebase.firestore.git
