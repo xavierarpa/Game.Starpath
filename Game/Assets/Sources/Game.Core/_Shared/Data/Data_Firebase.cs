@@ -45,7 +45,7 @@ public struct Fingerprint
     [field: SerializeField] public string Message { get; set; } 
     [field: SerializeField] public string Nick { get; set; }
     [field: SerializeField] public string Color { get; set; }
-    public DateTime CreatedAt { get; set; }
+    [field: SerializeField] public DateTime CreatedAt { get; set; }
     [field: SerializeField] public int Likes { get; set; }
     [field: SerializeField] public int SpriteIndex { get; set; }
 
@@ -56,7 +56,9 @@ public struct Fingerprint
         this.Message = document.TryGetValue("Message", out object msg) ? msg as string : "?";
         this.Nick = document.TryGetValue("Nick", out object _nick) ? _nick as string : "???";
         this.Color = document.TryGetValue("Color", out object _color) ? _color as string : "#ffffff";
-        this.CreatedAt = DateTime.TryParse(document["CreatedAt"].ToString(), out DateTime _CreatedAt) ? _CreatedAt : DateTime.Now;
+
+        this.CreatedAt = (document.TryGetValue("CreatedAt",out object _timestamp) ? (Timestamp)_timestamp : Timestamp.GetCurrentTimestamp()).ToDateTime();
+        //this.CreatedAt = DateTime.TryParse(document["CreatedAt"].ToString(), out DateTime _CreatedAt) ? _CreatedAt : DateTime.Now;
         this.Likes = document.TryGetValue("Likes", out object _Likes) ? int.TryParse(_Likes.ToString(), out int _LikesInt) ? _LikesInt : 0 : 0;
         this.SpriteIndex = document.TryGetValue("SpriteIndex", out object _SpriteIndex) ? int.TryParse(_SpriteIndex.ToString(), out int _spriteIndexInt) ? _spriteIndexInt : 0 : 0;
     }

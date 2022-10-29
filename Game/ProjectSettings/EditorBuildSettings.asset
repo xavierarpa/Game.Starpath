@@ -15,12 +15,6 @@ EditorBuildSettings:
     path: Assets/SubModules/MMA.Firebase.Firestore/Runtime/MMA.Firebase.Firestore.unity
     guid: ccf04a48f73844e43a61d930792a22e4
   - enabled: 1
-    path: Assets/SubModules/MMA.InternetStatus/Runtime/MMA.InternetStatus.unity
-    guid: f9d6c3f509e2a4f249fd39d07be5e3ae
-  - enabled: 1
-    path: Assets/SubModules/MMA.Localization/Runtime/MMA.Localization.unity
-    guid: 3a1fa28c387794e8ca9540e2d32c66a2
-  - enabled: 1
     path: Assets/SubModules/MMA.Scenes/Runtime/MMA.Scenes.unity
     guid: 3c2d68bfc8bac42bb8c8035514b7cf7c
   m_configObjects:

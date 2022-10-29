@@ -10,3 +10,11 @@ public static class Service
 
     }
 }
+
+namespace MMA.Localization
+{
+    public static class Service
+    {
+        public static string Translate(in string str) => str;
+    }
+}

@@ -21,13 +21,13 @@ public static class Data_Localization
     public static class Key
     {
         //Translations
-        public const string common_lang = "common_lang";
-        public const string setup_title = "setup_title";
-        public const string setup_continue = "setup_continue";
-        public const string setup_input_name_placeholder = "setup_input_name_placeholder"; 
-        public const string loading_message = "loading_message";
-        public const string setup_input_message_placeholder = "setup_input_message_placeholder";
-        public const string text_create = "text_create";
-        public const string text_create_not = "text_create_not";
+        public const string common_lang = "English";
+        public const string setup_title = "Create your star for the constellation";
+        public const string setup_continue = "Continue to";
+        public const string setup_input_name_placeholder = "Name the star"; 
+        public const string loading_message = "Loading...";
+        public const string setup_input_message_placeholder = "Write a message for the star";
+        public const string text_create = "Press space to create the star";
+        public const string text_create_not = "You cannot create the star here";
     }
 }

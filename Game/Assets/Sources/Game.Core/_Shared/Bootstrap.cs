@@ -28,15 +28,15 @@ public class Bootstrap : MonoBehaviour
 
 
         //## Localization Module
-        yield return Service.Scene.Add("MMA.Localization");
-        yield return Middleware<string, bool>.Invoke_Task(MMA.Localization.Key.Set_StringTable, Data_Localization.Path_Locale).ToCoroutine();
+        //yield return Service.Scene.Add("MMA.Localization");
+        //yield return Middleware<string, bool>.Invoke_Task(MMA.Localization.Key.Set_StringTable, Data_Localization.Path_Locale).ToCoroutine();
         //var a = MMA.Localization.Service.Translate("common_lang");
         //Debug.Log(a);
 
 
         //# Internet
-        yield return Service.Scene.Add("MMA.InternetStatus");
-        MMA.InternetStatus.Service.Connect((Data_InternetStatus.URL_FIREBASE, true));
+        //yield return Service.Scene.Add("MMA.InternetStatus");
+        //MMA.InternetStatus.Service.Connect((Data_InternetStatus.URL_FIREBASE, true));
 
         //## Firebase
         yield return Service.Scene.Add("MMA.Firebase");

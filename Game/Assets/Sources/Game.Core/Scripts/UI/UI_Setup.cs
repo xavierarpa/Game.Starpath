@@ -76,7 +76,7 @@ public class UI_Setup : Module
     protected override void OnSubscription(bool condition)
     {
         //OnTranslateUI
-        Middleware.Subscribe_Publish(condition, MMA.Localization.Key.OnSetStringTable, OnTranslateUI);
+        //Middleware.Subscribe_Publish(condition, MMA.Localization.Key.OnSetStringTable, OnTranslateUI);
     }
 
 
